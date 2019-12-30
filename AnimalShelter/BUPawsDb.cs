@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AnimalShelter
 {
-   public class BUPawsDb : DbContext
+    public class BUPawsDb : DbContext
     {
         string connectionString = @"Server=.\SQLEXPRESS;Database=BUPawsDb;Trusted_Connection=True;";
         public DbSet<PawUser> PawUsers { get; set; }
@@ -17,6 +17,19 @@ namespace AnimalShelter
         {
             optionsBuilder.UseSqlServer(connectionString);
         }
+        protected override void OnModelCreating (ModelBuilder modelBuilder){
+           // User is added.
+            modelBuilder.Entity<PawUser>().HasData(
+                new PawUser
+                {
+                    Id = 1,
+                    Name = "YMB",
+                    Surname = "Bal",
+                    UserName = "admin",
+                    Password = "admin",
+                    CreatedDate = DateTime.Now
 
+                }) ;
+        }
     }
 }
