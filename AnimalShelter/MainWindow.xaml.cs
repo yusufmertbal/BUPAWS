@@ -24,5 +24,23 @@ namespace AnimalShelter
         {
             InitializeComponent();
         }
+
+        private void entryButton_Click(object sender, RoutedEventArgs e)
+        {
+            PawUserService pawUserService = new PawUserService();
+            var loginUser = pawUserService.Login(txtUserName.Text, txtUserPassword.Text);
+            if(loginUser == null) 
+            {
+                MessageBox.Show("Bilgiler Yanlış");
+                txtUserName.Text = "";
+                txtUserPassword.Text = "";
+            }
+            else 
+            {
+                DetailWindow detailWindow = new DetailWindow(loginUser);
+                detailWindow.Show();
+                this.Close();
+            }
+        }
     }
 }
