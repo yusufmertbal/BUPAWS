@@ -24,18 +24,18 @@ namespace AnimalShelter
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            //bu kısımdaki kodların çoğu cetLibrary ödevinden uyarlanmıştır.
             PawUser pawUser = new PawUser();
             pawUser.Name = txtName.Text;
             pawUser.Surname = txtSurname.Text;
             pawUser.UserName = txtUserName.Text;
             pawUser.Password = txtUserPassword.Text;
 
-
-
-
             BUPawsDb db = new BUPawsDb();
             db.PawUsers.Add(pawUser);
 
+            if (txtUserPassword.Text == txtUserPasswordRepeat.Text) 
+            {
             db.SaveChanges();
             MessageBox.Show("Kullanıcı Kaydedildi.");
             //lblStudentId.Content = "";
@@ -44,6 +44,9 @@ namespace AnimalShelter
             txtUserName.Text = "";
             txtUserPassword.Text = "";
             txtUserPasswordRepeat.Text = "";
+            }
+
+            else { MessageBox.Show("Parolanızın tekrarını yanlış girdiniz. Lütfen düzeltin."); }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
