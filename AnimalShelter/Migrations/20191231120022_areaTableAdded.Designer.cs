@@ -4,14 +4,16 @@ using AnimalShelter;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnimalShelter.Migrations
 {
     [DbContext(typeof(BUPawsDb))]
-    partial class BUPawsDbModelSnapshot : ModelSnapshot
+    [Migration("20191231120022_areaTableAdded")]
+    partial class areaTableAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

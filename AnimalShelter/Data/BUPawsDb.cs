@@ -9,6 +9,7 @@ namespace AnimalShelter
     {
         string connectionString = @"Server=.\SQLEXPRESS;Database=BUPawsDb;Trusted_Connection=True;";
         public DbSet<PawUser> PawUsers { get; set; }
+        public DbSet<paw>
         public BUPawsDb() : base()
         {
 
@@ -30,6 +31,8 @@ namespace AnimalShelter
                     CreatedDate = DateTime.Now
 
                 }) ;
+
+            
         }
     }
 }
