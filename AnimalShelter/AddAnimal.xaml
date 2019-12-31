@@ -49,11 +49,13 @@
         <Button Content="Güncelle" Name="btnUpdate" Click="btnUpdate_Click"></Button>
         <Button Content="Sil" Name="btnDelete" Click="btnDelete_Click"></Button>
         <Button Name="btnTurnBack" Content="Geri Dön" Click="btnTurnBack_Click" />
-        <DataGrid Name="dgStudents" Height="311" AutoGenerateColumns="False">
+        <DataGrid Name="dgAnimals" Height="250" AutoGenerateColumns="False" SelectedCellsChanged="dgAnimals_SelectedCellsChanged" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Adı" Binding="{Binding Path=Name}" />
-                <DataGridTextColumn Header="Soyadı" Binding="{Binding Path=Surname}"/>
-                <DataGridTextColumn FontWeight="Bold" FontSize="10" Header="Bölümü" Binding="{Binding Path=Department.Name}"/>
+                <DataGridTextColumn Header="Hayvan Adı" Binding="{Binding Path=AnimalName}" />
+                <DataGridTextColumn Header="Türü" Binding="{Binding Path=Species}"/>
+                <DataGridTextColumn FontWeight="Bold" FontSize="10" Header="Yaşadığı Bölge" Binding="{Binding Path=AnimalArea}"/>
+                <DataGridTextColumn Header="Aşı Durumu" Binding="{Binding Path=Vaccine}"/>
+                <DataGridTextColumn Header="Sağlık Durumu" Binding="{Binding Path=Health}"/>
             </DataGrid.Columns>
         </DataGrid>
 

@@ -67,19 +67,83 @@ namespace AnimalShelter
 
         private void LoadAnimals()
         {
-            //var animals = db.pawAnimals.Include(s => s.AnimalName)
-                       //.ToList();
-            //dgStudents.ItemsSource = animals;
+            BUPawsDb db = new BUPawsDb();
+            List<AnimalShelter.Data.PawAnimal> animals = db.pawAnimals.ToList();
+            dgAnimals.ItemsSource = animals;
+            //var animals = db.pawAnimals.Include(a => a.)
+            //    .ToList();
+            //dgAnimals.ItemsSource = animals;
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            AnimalShelter.Data.PawAnimal animal = dgAnimals.SelectedItem as AnimalShelter.Data.PawAnimal;
+            if (animal != null)
+            {
+                
+                var animalnew = db.pawAnimals.Find(animal.Id);
+                animalnew.AnimalName = txtAnimalName.Text;
+                animalnew.Species = txtAnimalSpecies.Text;
+                animal.Vaccine = cbVaccine.Text;
+                animal.Health = cbHealth.Text;
+                animal.AnimalArea = cbAreas.Text;
 
+                var selectedArea = cbAreas.SelectedItem as AnimalShelter.Data.PawArea;
+                if (selectedArea == null)
+                {
+                    MessageBox.Show("Bölge seçiniz");
+                    return;
+                }
+                animal.AnimalArea = selectedArea.Name;
+                animalnew.AnimalArea = selectedArea.Name;
+
+                var selectedVaccine = cbVaccine.SelectedItem as AnimalShelter.Data.PawVaccine;
+                if (selectedVaccine == null)
+                {
+                    MessageBox.Show("Aşı seçiniz");
+                    return;
+                }
+                animal.Vaccine = selectedVaccine.VaccineName;
+                animalnew.Vaccine = selectedVaccine.VaccineName;
+
+                var selectedHealth = cbHealth.SelectedItem as AnimalShelter.Data.PawHealth;
+                if (selectedHealth == null)
+                {
+                    MessageBox.Show("Sağlık durumu seçiniz");
+                    return;
+                }
+                animal.Health = selectedHealth.HealthyOrSick;
+                animalnew.Health = selectedHealth.HealthyOrSick;
+
+
+                db.SaveChanges();
+                MessageBox.Show("Seçilen veri güncellendi.");
+                txtAnimalName.Text = "";
+                txtAnimalSpecies.Text = "";
+                LoadAnimals();
+            }
+            else
+            {
+                MessageBox.Show("güncellemek için bir hayvan seçmelisin!");
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            AnimalShelter.Data.PawAnimal animal = dgAnimals.SelectedItem as AnimalShelter.Data.PawAnimal;
+            if (animal != null)
+            {
 
+                db.pawAnimals.Remove(animal);
+                db.SaveChanges();
+                MessageBox.Show("Seçilen sistemden silindi!");
+                LoadAnimals();
+
+            }
+            else
+            {
+                MessageBox.Show("Silmek için öğrenci seçmelisin!");
+            }
         }
 
         private void btnTurnBack_Click(object sender, RoutedEventArgs e)
@@ -89,6 +153,7 @@ namespace AnimalShelter
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadAnimals();
 
             var areas = db.pawAreas.OrderBy(d => d.Name).ToList();
             cbAreas.ItemsSource = areas;
@@ -98,6 +163,20 @@ namespace AnimalShelter
 
             var health = db.pawHealths.OrderBy(d => d.HealthyOrSick).ToList();
             cbHealth.ItemsSource = health;
+        }
+
+        private void dgAnimals_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            AnimalShelter.Data.PawAnimal animal = dgAnimals.SelectedItem as AnimalShelter.Data.PawAnimal;
+            if (animal != null)
+            {
+                //lblStudentId.Content = student.Id;
+                txtAnimalName.Text = animal.AnimalName;
+                txtAnimalSpecies.Text = animal.Species;
+                cbAreas.SelectedItem = animal.AnimalArea;
+                cbHealth.SelectedItem = animal.Health;
+                cbVaccine.SelectedItem = animal.Vaccine;
+            }
         }
     }
 }
