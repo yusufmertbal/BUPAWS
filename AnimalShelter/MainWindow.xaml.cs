@@ -42,5 +42,12 @@ namespace AnimalShelter
                 this.Close();
             }
         }
+
+        private void NewUser_Click(object sender, RoutedEventArgs e)
+        {
+            NewUser newUser = new NewUser();
+            newUser.Show();
+            this.Close();
+        }
     }
 }
