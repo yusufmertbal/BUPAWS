@@ -1,0 +1,63 @@
+﻿<Window x:Class="AnimalShelter.AddAnimal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimalShelter"
+        mc:Ignorable="d"
+        Title="AddAnimal" Height="700" Width="700" Loaded="Window_Loaded">
+    <StackPanel Margin="10">
+        <Label Content="Hayvan Adı" Name="lblAnimalName"/>
+        <TextBox Text="" TextWrapping="Wrap" Name="txtAnimalName" />
+        <Label Content="Tür" Name="lblSpeciesName"/>
+        <TextBox Text="" TextWrapping="Wrap" Name="txtAnimalSpecies" />
+        <Label Content="Yaşadığı Bölge"></Label>
+        <ComboBox x:Name="cbAreas">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Code}"></TextBlock>
+                        <TextBlock Text=" "></TextBlock>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </WrapPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Content="Aşı Durumu"></Label>
+        <ComboBox x:Name="cbVaccine">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding VaccineName}"></TextBlock>
+                    </WrapPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Content="Sağlık Durumu"></Label>
+        <ComboBox x:Name="cbHealth">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding HealthyOrSick}"></TextBlock>
+                    </WrapPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button Content="Ekle" Name="btnSave" Click="btnSave_Click"/>
+        <Button Content="Güncelle" Name="btnUpdate" Click="btnUpdate_Click"></Button>
+        <Button Content="Sil" Name="btnDelete" Click="btnDelete_Click"></Button>
+        <Button Name="btnTurnBack" Content="Geri Dön" Click="btnTurnBack_Click" />
+        <DataGrid Name="dgStudents" Height="311" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Adı" Binding="{Binding Path=Name}" />
+                <DataGridTextColumn Header="Soyadı" Binding="{Binding Path=Surname}"/>
+                <DataGridTextColumn FontWeight="Bold" FontSize="10" Header="Bölümü" Binding="{Binding Path=Department.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+    </StackPanel>
+</Window>

@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="DetailWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Name="dgStudents" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Height="311" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Adı" Binding="{Binding Path=Name}" />
+                <DataGridTextColumn Header="Soyadı" Binding="{Binding Path=Surname}"/>
+                <DataGridTextColumn FontWeight="Bold" FontSize="10" Header="Bölümü" Binding="{Binding Path=Department.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Düzenle" Name="editButton" Click="editButton_Click" Grid.Column="4" Grid.Row="1" Margin="30" FontSize="22"></Button>
+
     </Grid>
 </Window>

@@ -21,5 +21,11 @@ namespace AnimalShelter
         {
             InitializeComponent();
         }
+
+        private void editButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddAnimal addAnimal = new AddAnimal();
+            addAnimal.Show();
+        }
     }
 }

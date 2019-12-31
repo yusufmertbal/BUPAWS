@@ -4,73 +4,22 @@ using AnimalShelter;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnimalShelter.Migrations
 {
     [DbContext(typeof(BUPawsDb))]
-    partial class BUPawsDbModelSnapshot : ModelSnapshot
+    [Migration("20191231133544_healthTableAndDataAdded")]
+    partial class healthTableAndDataAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("AnimalShelter.Data.PawAnimal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AnimalArea")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("AnimalName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("Health")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("Species")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Vaccine")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("pawAnimals");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AnimalArea = "KK Kuzey Kampüs",
-                            AnimalName = "Harun",
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Health = "Hasta",
-                            Species = "Köpek",
-                            Vaccine = "Aşılı"
-                        });
-                });
 
             modelBuilder.Entity("AnimalShelter.Data.PawArea", b =>
                 {
@@ -225,7 +174,7 @@ namespace AnimalShelter.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2019, 12, 31, 17, 45, 53, 993, DateTimeKind.Local).AddTicks(9885),
+                            CreatedDate = new DateTime(2019, 12, 31, 16, 35, 44, 252, DateTimeKind.Local).AddTicks(3644),
                             Name = "YMB",
                             Password = "admin",
                             Surname = "Bal",

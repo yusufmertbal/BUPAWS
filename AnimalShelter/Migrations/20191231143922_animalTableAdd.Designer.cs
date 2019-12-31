@@ -4,14 +4,16 @@ using AnimalShelter;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AnimalShelter.Migrations
 {
     [DbContext(typeof(BUPawsDb))]
-    partial class BUPawsDbModelSnapshot : ModelSnapshot
+    [Migration("20191231143922_animalTableAdd")]
+    partial class animalTableAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,18 +60,6 @@ namespace AnimalShelter.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("pawAnimals");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AnimalArea = "KK Kuzey Kampüs",
-                            AnimalName = "Harun",
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Health = "Hasta",
-                            Species = "Köpek",
-                            Vaccine = "Aşılı"
-                        });
                 });
 
             modelBuilder.Entity("AnimalShelter.Data.PawArea", b =>
@@ -225,7 +215,7 @@ namespace AnimalShelter.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2019, 12, 31, 17, 45, 53, 993, DateTimeKind.Local).AddTicks(9885),
+                            CreatedDate = new DateTime(2019, 12, 31, 17, 39, 21, 591, DateTimeKind.Local).AddTicks(8784),
                             Name = "YMB",
                             Password = "admin",
                             Surname = "Bal",
