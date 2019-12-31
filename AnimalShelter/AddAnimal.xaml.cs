@@ -70,9 +70,6 @@ namespace AnimalShelter
             BUPawsDb db = new BUPawsDb();
             List<AnimalShelter.Data.PawAnimal> animals = db.pawAnimals.ToList();
             dgAnimals.ItemsSource = animals;
-            //var animals = db.pawAnimals.Include(a => a.)
-            //    .ToList();
-            //dgAnimals.ItemsSource = animals;
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)

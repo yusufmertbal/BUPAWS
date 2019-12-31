@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,23 @@ namespace AnimalShelter
         {
             AddAnimal addAnimal = new AddAnimal();
             addAnimal.Show();
+        }
+
+        private void dgAnimals_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadAnimals();
+        }
+
+        private void LoadAnimals()
+        {
+            BUPawsDb db = new BUPawsDb();
+            List<AnimalShelter.Data.PawAnimal> animals = db.pawAnimals.ToList();
+            dgAnimals.ItemsSource = animals;
         }
     }
 }
