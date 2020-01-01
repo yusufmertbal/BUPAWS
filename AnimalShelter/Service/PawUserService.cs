@@ -22,6 +22,18 @@ namespace AnimalShelter
             var loginUser = db.PawUsers.FirstOrDefault(u => u.UserName == UserName && u.Password == Password);
             return loginUser;
         }
-        
+
+        public bool CheckPassword(PawUser pawUser, string password)
+        {
+            return pawUser.Password == password.ToString();
+        }
+
+        public void ChangePassword(PawUser pawUser, string password)
+        {
+            var user = db.PawUsers.Find(pawUser.Id);
+            user.Password = password.ToString();
+            db.SaveChanges();
+        }
+
     }
 }

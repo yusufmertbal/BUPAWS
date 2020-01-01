@@ -24,7 +24,7 @@
         <TextBlock Text="Kullanıcı Adı" Grid.Column="0" Grid.Row="1" Margin="10" HorizontalAlignment="Right" FontSize="18"></TextBlock>
         <TextBlock Text="Şifre" Grid.Column="0" Grid.Row="2" Margin="10" HorizontalAlignment="Right" FontSize="18"></TextBlock>
         <TextBox Name="txtUserName" Grid.Column="1" Grid.Row="1" Margin="10"></TextBox>
-        <PasswordBox Name="txtUserPassword" Grid.Column="1" Grid.Row="2" Margin="10" PasswordChar="*"></PasswordBox>
+        <PasswordBox Name="txtUserPassword" Grid.Column="1" Grid.Row="2" Margin="10" ></PasswordBox>
         <Button Content="Giriş" Name="entryButton" Grid.Column="1" Grid.Row="3" Margin="10" FontSize="16" Click="entryButton_Click"></Button>
         <Button Content="Yeni Kullanıcı" Name="NewUser" Click="NewUser_Click" Grid.Column="1" Grid.Row="4" Margin="10" FontSize="16"></Button>
         

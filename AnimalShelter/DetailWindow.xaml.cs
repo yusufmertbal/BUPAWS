@@ -18,8 +18,10 @@ namespace AnimalShelter
     /// </summary>
     public partial class DetailWindow : Window
     {
-        public DetailWindow(PawUser loginUser)
+        private PawUser loginUser;
+        public DetailWindow(PawUser pawUser)
         {
+            loginUser = pawUser;
             InitializeComponent();
         }
 
@@ -64,7 +66,7 @@ namespace AnimalShelter
         private void itemExitUser_Click(object sender, RoutedEventArgs e)
         {
             //https://www.wpf-tutorial.com/dialogs/the-messagebox/ adresinden alıp üzerinde oynama yaptım.
-            MessageBoxResult result = MessageBox.Show("Hesabındanq çıkış yapmak istediğine emin misin?", "ÇIKIŞ", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult result = MessageBox.Show("Hesabından çıkış yapmak istediğine emin misin?", "ÇIKIŞ", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             switch (result)
             {
                 case MessageBoxResult.Yes:
@@ -79,7 +81,7 @@ namespace AnimalShelter
 
         private void itemChangePassword_Click(object sender, RoutedEventArgs e)
         {
-            ChangePassword changePassword = new ChangePassword();
+            ChangePassword changePassword = new ChangePassword(loginUser);
             changePassword.Show();
             this.Close();
         }

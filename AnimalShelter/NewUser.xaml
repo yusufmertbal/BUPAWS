@@ -15,9 +15,9 @@
         <Label Content="Kullanıcı Adı"/>
         <TextBox Name="txtUserName" Text="" TextWrapping="Wrap"/>
         <Label Content="Parola"/>
-        <PasswordBox Name="txtUserPassword" PasswordChar="*" />
+        <PasswordBox Name="txtUserPassword" />
         <Label Content="Parola Tekrar"/>
-        <PasswordBox Name="txtUserPasswordRepeat" PasswordChar="*" />
+        <PasswordBox Name="txtUserPasswordRepeat"  />
 
         <Button Content="Ekle" Name="btnAdd" Click="btnAdd_Click" Background="LightGreen" Margin="5"/>
         <Button Content="Geri Dön" Name="btnCancel" Click="btnCancel_Click" Background="LightBlue" Margin="5"/>

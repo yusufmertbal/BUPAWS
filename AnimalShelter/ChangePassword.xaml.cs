@@ -18,13 +18,15 @@ namespace AnimalShelter
     /// </summary>
     public partial class ChangePassword : Window
     {
-        public ChangePassword()
-        {
-            InitializeComponent();
-        }
-
         PawUserService pawUserService = new PawUserService();
         private readonly PawUser pawUser;
+        public ChangePassword(PawUser pawUser)
+        {
+            InitializeComponent();
+            this.pawUser = pawUser;
+        }
+
+        
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -49,6 +51,8 @@ namespace AnimalShelter
 
             pawUserService.ChangePassword(pawUser, txtPasswordNew.Password);
             MessageBox.Show("Şifreniz değiştirilmiştir.");
+            MainWindow main = new MainWindow();
+            main.Show();
             this.Close();
         }
     }
