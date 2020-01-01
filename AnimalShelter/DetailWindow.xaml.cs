@@ -38,6 +38,7 @@ namespace AnimalShelter
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            txtLoginUser.Text = "Merhaba " + loginUser.Name + " " + loginUser.Surname;
             LoadAnimals();
         }
 
