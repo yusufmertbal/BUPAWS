@@ -45,5 +45,43 @@ namespace AnimalShelter
             List<AnimalShelter.Data.PawAnimal> animals = db.pawAnimals.ToList();
             dgAnimals.ItemsSource = animals;
         }
+        
+
+        private void itemExitApp_Click(object sender, RoutedEventArgs e)
+        {
+            //https://www.wpf-tutorial.com/dialogs/the-messagebox/ adresinden alıp üzerinde oynama yaptım.
+            MessageBoxResult result = MessageBox.Show("Uygulamadan çıkmak istediğine emin misin?", "ÇIKIŞ", MessageBoxButton.YesNo,MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        private void itemExitUser_Click(object sender, RoutedEventArgs e)
+        {
+            //https://www.wpf-tutorial.com/dialogs/the-messagebox/ adresinden alıp üzerinde oynama yaptım.
+            MessageBoxResult result = MessageBox.Show("Hesabındanq çıkış yapmak istediğine emin misin?", "ÇIKIŞ", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    MainWindow main = new MainWindow();
+                    main.Show();
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        private void itemChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword();
+            changePassword.Show();
+            this.Close();
+        }
     }
 }

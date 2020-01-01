@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalShelter"
         mc:Ignorable="d"
-        Title="AddAnimal" Height="700" Width="700" Loaded="Window_Loaded">
+        Title="HAYVAN EKLE" Height="700" Width="700" Loaded="Window_Loaded"
+        Background="LightGoldenrodYellow">
     <StackPanel Margin="10">
         <Label Content="Hayvan Adı" Name="lblAnimalName"/>
         <TextBox Text="" TextWrapping="Wrap" Name="txtAnimalName" />
@@ -45,10 +46,10 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <Button Content="Ekle" Name="btnSave" Click="btnSave_Click"/>
-        <Button Content="Güncelle" Name="btnUpdate" Click="btnUpdate_Click"></Button>
-        <Button Content="Sil" Name="btnDelete" Click="btnDelete_Click"></Button>
-        <Button Name="btnTurnBack" Content="Geri Dön" Click="btnTurnBack_Click" />
+        <Button Content="Ekle" Name="btnSave" Click="btnSave_Click" Margin="0,40,0,0" Background="LightGreen"/>
+        <Button Content="Güncelle" Name="btnUpdate" Click="btnUpdate_Click" Margin="0,5,0,0" Background="Yellow"></Button>
+        <Button Content="Sil" Name="btnDelete" Click="btnDelete_Click" Margin="0,5,0,0" Background="IndianRed"></Button>
+        <Button Name="btnTurnBack" Content="Geri Dön" Click="btnTurnBack_Click" Margin="0,5,0,5" Background="LightBlue"/>
         <DataGrid Name="dgAnimals" Height="250" AutoGenerateColumns="False" SelectedCellsChanged="dgAnimals_SelectedCellsChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Hayvan Adı" Binding="{Binding Path=AnimalName}" />

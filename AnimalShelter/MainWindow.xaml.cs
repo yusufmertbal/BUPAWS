@@ -28,12 +28,12 @@ namespace AnimalShelter
         private void entryButton_Click(object sender, RoutedEventArgs e)
         {
             PawUserService pawUserService = new PawUserService();
-            var loginUser = pawUserService.Login(txtUserName.Text, txtUserPassword.Text);
+            var loginUser = pawUserService.Login(txtUserName.Text, txtUserPassword.Password);
             if(loginUser == null) 
             {
                 MessageBox.Show("Bilgiler Yanlış");
                 txtUserName.Text = "";
-                txtUserPassword.Text = "";
+                txtUserPassword.Password = "";
             }
             else 
             {

@@ -29,12 +29,12 @@ namespace AnimalShelter
             pawUser.Name = txtName.Text;
             pawUser.Surname = txtSurname.Text;
             pawUser.UserName = txtUserName.Text;
-            pawUser.Password = txtUserPassword.Text;
+            pawUser.Password = txtUserPassword.Password;
 
             BUPawsDb db = new BUPawsDb();
             db.PawUsers.Add(pawUser);
 
-            if (txtUserPassword.Text == txtUserPasswordRepeat.Text) 
+            if (txtUserPassword.Password == txtUserPasswordRepeat.Password) 
             {
             db.SaveChanges();
             MessageBox.Show("Kullanıcı Kaydedildi.");
@@ -42,8 +42,8 @@ namespace AnimalShelter
             txtName.Text = "";
             txtSurname.Text = "";
             txtUserName.Text = "";
-            txtUserPassword.Text = "";
-            txtUserPasswordRepeat.Text = "";
+            txtUserPassword.Password = "";
+            txtUserPasswordRepeat.Password = "";
             }
 
             else { MessageBox.Show("Parolanızın tekrarını yanlış girdiniz. Lütfen düzeltin."); }

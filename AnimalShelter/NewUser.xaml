@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalShelter"
         mc:Ignorable="d"
-        Title="NewUser" Height="450" Width="500">
+        Title="YENİ KULLANICI" Height="500" Width="500"
+        Background="LightGoldenrodYellow">
     <StackPanel>
-        <Label Content="Ad"/>
+        <Label Content="Ad" Margin="0,50,0,0"/>
         <TextBox Name="txtName" Text="" TextWrapping="Wrap"/>
         <Label Content="Soyad"/>
         <TextBox Name="txtSurname" Text="" TextWrapping="Wrap"/>
         <Label Content="Kullanıcı Adı"/>
         <TextBox Name="txtUserName" Text="" TextWrapping="Wrap"/>
         <Label Content="Parola"/>
-        <TextBox Name="txtUserPassword" Text="" TextWrapping="Wrap"/>
+        <PasswordBox Name="txtUserPassword" PasswordChar="*" />
         <Label Content="Parola Tekrar"/>
-        <TextBox Name="txtUserPasswordRepeat" Text="" TextWrapping="Wrap"/>
+        <PasswordBox Name="txtUserPasswordRepeat" PasswordChar="*" />
 
         <Button Content="Ekle" Name="btnAdd" Click="btnAdd_Click" Background="LightGreen" Margin="5"/>
-        <Button Content="Geri Dön" Name="btnCancel" Click="btnCancel_Click" Background="LightYellow" Margin="5"/>
+        <Button Content="Geri Dön" Name="btnCancel" Click="btnCancel_Click" Background="LightBlue" Margin="5"/>
     </StackPanel>
 </Window>

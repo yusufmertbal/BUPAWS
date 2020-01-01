@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalShelter"
         mc:Ignorable="d"
-        Title="DetailWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="DETAY SAYFASI" Height="500" Width="800" Loaded="Window_Loaded"
+        Background="LightGoldenrodYellow">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"></ColumnDefinition>
@@ -15,12 +16,13 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Name="dgAnimals" Height="250" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" AutoGenerateColumns="False" SelectedCellsChanged="dgAnimals_SelectedCellsChanged" >
+        <DataGrid Name="dgAnimals" Height="210" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" AutoGenerateColumns="False" SelectedCellsChanged="dgAnimals_SelectedCellsChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Hayvan Adı" Binding="{Binding Path=AnimalName}" />
                 <DataGridTextColumn Header="Türü" Binding="{Binding Path=Species}"/>
@@ -29,7 +31,16 @@
                 <DataGridTextColumn Header="Sağlık Durumu" Binding="{Binding Path=Health}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Düzenle" Name="editButton" Click="editButton_Click" Grid.Column="4" Grid.Row="1" Margin="30" FontSize="22"></Button>
-
+        <Button Content="Düzenle" Name="editButton" Click="editButton_Click" Grid.Column="4" Grid.Row="2" Margin="30" FontSize="22"></Button>
+        
+        <Menu Grid.Row="0" Grid.ColumnSpan="5">
+            <MenuItem Header="Kullanıcı İşlemleri">
+                <MenuItem Header="Parola Değiştir" Name="itemChangePassword" Click="itemChangePassword_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Çıkış">
+                <MenuItem Header="Uygulamayı Kapat" Name="itemExitApp" Click="itemExitApp_Click"></MenuItem>
+                <MenuItem Header="Hesaptan Çık" Name="itemExitUser" Click="itemExitUser_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
