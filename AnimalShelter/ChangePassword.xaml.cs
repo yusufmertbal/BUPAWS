@@ -30,7 +30,7 @@ namespace AnimalShelter
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow back = new MainWindow();
+            DetailWindow back = new DetailWindow(pawUser);
             back.Show();
             this.Close();
         }

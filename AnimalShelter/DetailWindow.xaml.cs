@@ -86,5 +86,16 @@ namespace AnimalShelter
             changePassword.Show();
             this.Close();
         }
+
+        private void btnSummary_Click(object sender, RoutedEventArgs e)
+        {
+            Summary summary = new Summary();
+            summary.Show();
+        }
+
+        private void btnRecovery_Click(object sender, RoutedEventArgs e)
+        {
+            LoadAnimals();
+        }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AnimalShelter"
         mc:Ignorable="d"
         Title="YENİ KULLANICI" Height="500" Width="500"
-        Background="LightGoldenrodYellow">
+        Background="LightGoldenrodYellow" Icon="image/paw2.png">
     <StackPanel>
         <Label Content="Ad" Margin="0,50,0,0"/>
         <TextBox Name="txtName" Text="" TextWrapping="Wrap"/>

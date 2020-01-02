@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AnimalShelter"
         mc:Ignorable="d"
         Title="HAYVAN EKLE" Height="700" Width="700" Loaded="Window_Loaded"
-        Background="LightGoldenrodYellow">
+        Background="LightGoldenrodYellow" Icon="image/paw2.png">
     <StackPanel Margin="10">
         <Label Content="Hayvan Adı" Name="lblAnimalName"/>
         <TextBox Text="" TextWrapping="Wrap" Name="txtAnimalName" />

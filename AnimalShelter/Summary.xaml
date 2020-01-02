@@ -1,0 +1,33 @@
+﻿<Window x:Class="AnimalShelter.Summary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimalShelter"
+        mc:Ignorable="d"
+        Title="ÖZET SAYFASI" Height="400" Width="600" Icon="image/paw2.png"
+        Background="LightGoldenrodYellow" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Name="dgSummary" Height="170" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Hayvan Adı" Binding="{Binding Path=AnimalName}" />
+                <DataGridTextColumn FontWeight="Bold" FontSize="10" Header="Yaşadığı Bölge" Binding="{Binding Path=AnimalArea}"/>
+                <DataGridTextColumn Header="Sağlık Durumu" Binding="{Binding Path=Health}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Kapat" Name="btnClose" Click="btnClose_Click" Grid.Column="4" Grid.Row="1" Margin="30" FontSize="22"></Button>
+    </Grid>
+</Window>

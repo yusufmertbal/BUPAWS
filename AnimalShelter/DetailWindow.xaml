@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AnimalShelter"
         mc:Ignorable="d"
         Title="DETAY SAYFASI" Height="550" Width="800" Loaded="Window_Loaded" 
-        Background="LightGoldenrodYellow">
+        Background="LightGoldenrodYellow" Icon="image/paw2.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"></ColumnDefinition>
@@ -31,10 +31,17 @@
                 <DataGridTextColumn FontWeight="Bold" FontSize="10" Header="Yaşadığı Bölge" Binding="{Binding Path=AnimalArea}"/>
                 <DataGridTextColumn Header="Aşı Durumu" Binding="{Binding Path=Vaccine}"/>
                 <DataGridTextColumn Header="Sağlık Durumu" Binding="{Binding Path=Health}"/>
-                <DataGridTextColumn Header="Oluşturma Tarihi" Binding="{Binding Path=CreatedDate}"/>
+                <DataGridTextColumn Header="Sisteme Eklenme Tarihi" Binding="{Binding Path=CreatedDate}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Düzenle" Name="editButton" Click="editButton_Click" Grid.Column="4" Grid.Row="3" Margin="30" FontSize="22"></Button>
+        <Button Content="Özet" Name="btnSummary" Click="btnSummary_Click" Grid.Column="4" Grid.Row="4" Margin="30" FontSize="22"></Button>
+        <Button Name="btnRecovery" Click="btnRecovery_Click" Grid.Row="3" Grid.Column="0" Margin="10" Background="Transparent" BorderBrush="Transparent">
+            <DockPanel>
+                <Image Source="image/refresh.png" Width="20" Height="20"></Image>
+            </DockPanel>
+        </Button>
+        
 
         <Menu Grid.Row="0" Grid.ColumnSpan="5">
             <MenuItem Header="Kullanıcı İşlemleri">
