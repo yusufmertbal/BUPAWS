@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalShelter"
         mc:Ignorable="d"
-        Title="DETAY SAYFASI" Height="550" Width="800" Loaded="Window_Loaded"
+        Title="DETAY SAYFASI" Height="550" Width="800" Loaded="Window_Loaded" 
         Background="LightGoldenrodYellow">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,15 +25,17 @@
         </Grid.RowDefinitions>
         <DataGrid Name="dgAnimals" Height="210" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" AutoGenerateColumns="False" SelectedCellsChanged="dgAnimals_SelectedCellsChanged" >
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Hayvan No" Binding="{Binding Path=Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Hayvan Adı" Binding="{Binding Path=AnimalName}" />
                 <DataGridTextColumn Header="Türü" Binding="{Binding Path=Species}"/>
                 <DataGridTextColumn FontWeight="Bold" FontSize="10" Header="Yaşadığı Bölge" Binding="{Binding Path=AnimalArea}"/>
                 <DataGridTextColumn Header="Aşı Durumu" Binding="{Binding Path=Vaccine}"/>
                 <DataGridTextColumn Header="Sağlık Durumu" Binding="{Binding Path=Health}"/>
+                <DataGridTextColumn Header="Oluşturma Tarihi" Binding="{Binding Path=CreatedDate}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Düzenle" Name="editButton" Click="editButton_Click" Grid.Column="4" Grid.Row="3" Margin="30" FontSize="22"></Button>
-        
+
         <Menu Grid.Row="0" Grid.ColumnSpan="5">
             <MenuItem Header="Kullanıcı İşlemleri">
                 <MenuItem Header="Parola Değiştir" Name="itemChangePassword" Click="itemChangePassword_Click"></MenuItem>

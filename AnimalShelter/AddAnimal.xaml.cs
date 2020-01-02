@@ -54,6 +54,7 @@ namespace AnimalShelter
                 return;
             }
             animal.Health = selectedHealth.HealthyOrSick;
+            animal.CreatedDate = DateTime.Now;
 
 
             db.pawAnimals.Add(animal);
@@ -167,7 +168,6 @@ namespace AnimalShelter
             AnimalShelter.Data.PawAnimal animal = dgAnimals.SelectedItem as AnimalShelter.Data.PawAnimal;
             if (animal != null)
             {
-                //lblStudentId.Content = student.Id;
                 txtAnimalName.Text = animal.AnimalName;
                 txtAnimalSpecies.Text = animal.Species;
                 cbAreas.SelectedItem = animal.AnimalArea;

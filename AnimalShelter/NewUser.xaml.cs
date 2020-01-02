@@ -30,6 +30,7 @@ namespace AnimalShelter
             pawUser.Surname = txtSurname.Text;
             pawUser.UserName = txtUserName.Text;
             pawUser.Password = txtUserPassword.Password;
+            pawUser.CreatedDate = DateTime.Now;
 
             BUPawsDb db = new BUPawsDb();
             db.PawUsers.Add(pawUser);
@@ -38,7 +39,6 @@ namespace AnimalShelter
             {
             db.SaveChanges();
             MessageBox.Show("Kullanıcı Kaydedildi.");
-            //lblStudentId.Content = "";
             txtName.Text = "";
             txtSurname.Text = "";
             txtUserName.Text = "";
